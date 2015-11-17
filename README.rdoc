@@ -1,0 +1,33 @@
+== README
+
+MODELS:
+- Restaurants
+	+ Name !
+	+ Available Seats !
+	+ Address !
+	+ Reservations !
+	+ Cuisines !
+	+ Location
+	+ Reviews
+
+- User/Session
+	+ Diners
+
+- Reservation
+	+ Restaurant !
+	+ Number of people !
+	+ Time !
+
+- Cuisine?
+	+ Name !
+
+CONTROLLER RESPONSIBILTIES
+- Restaurants
+	+ Show some/all
+	+ Show one
+
+ASSUMPTIONS
+- Fixed start times for reservations
+- Fixed reservation duration
+- Limit party size
+- Focus on seats, not table arrangements
