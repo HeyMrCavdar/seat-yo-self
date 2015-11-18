@@ -1,7 +1,8 @@
 <h1 class="userinfo">
-		  <% if current_user %>
-		     <%= current_user.first_name %> <%= current_user.last_name%>
-		  <% else %>
-		    <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-		  <% end %>
-		</h1>
+	<%= current_user.first_name %> <%= current_user.last_name%></h1>
+
+<h4>Email: <%= current_user.email%> </h4>
+<hr>
+
+<h3>List of open reservations</h3>
+
