@@ -1,0 +1,7 @@
+<h1 class="userinfo">
+		  <% if current_user %>
+		     <%= current_user.first_name %> <%= current_user.last_name%>
+		  <% else %>
+		    <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+		  <% end %>
+		</h1>
