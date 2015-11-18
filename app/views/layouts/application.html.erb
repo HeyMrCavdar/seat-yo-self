@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 		<% if flash[:notice] %>
 	    <p id="notice"><%= flash[:notice] %></p>
 	    <% flash.discard(:notice) %>
@@ -18,12 +18,14 @@
 		  <% end %>
 		</p>
 
-  <title>Seat Yo Self</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  	<title>Seat Yo Self</title>
+
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+
+	<body>
 
 		<%= yield %>
 
