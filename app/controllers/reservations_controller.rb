@@ -13,10 +13,15 @@ class ReservationsController < ApplicationController
   	if @reservation.save
   		redirect_to reservations_url, notice: "Your reservation has been made."
   	else
-  		render '/restaurants/show', notice "Sorry, this reservation is unavailable."
+  		render '/restaurants/show', notice: "Sorry, this reservation is unavailable."
   	end
   end
 
   def update
   end
+
+ private
+ 	def reservation_params
+ 		params.require(:reservation).permit(:user_id, :time, :party_size, :restarant_id)
+ 	end
 end
