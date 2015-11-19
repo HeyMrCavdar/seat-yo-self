@@ -23,15 +23,21 @@
 
 footer {
 	position: absolute;
-	margin: 0 auto;
+	margin-left: 0;
+	margin-right: 0;
 	width: 100%;
 	background-color: #a65361;
-	padding: 0 auto;
-	border: 0 auto;
 	color: white;
 	font-family: Dosis;
 	text-align: center;
 }
+
+/*.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}*/
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
