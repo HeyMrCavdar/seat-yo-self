@@ -1,9 +1,49 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Dosis);
 
 * {
 	font-family: Oswald;
 }
 
+.maintitle {
+	color: #a65361;
+	font-size: 90px;
+	vertical-align: top;
+	text-shadow: -1px 1px black, -2px 2px black, -3px 3px black;
+   -webkit-transition: all 0.12s ease-out;
+   -moz-transition: all 0.12s ease-out;
+   -ms-transition: all 0.12s ease-out;
+   -o-transition: all 0.12s ease-out;
+}
+
+#restaurantimg {
+	width: 50px;
+	height: 50px;
+	max-height: 50px;
+}
+
+#restaurantlink {
+	color: #a65361;
+	font-size: 50px;
+}
+
+footer {
+	position: absolute;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+	background-color: #a65361;
+	color: white;
+	font-family: Dosis;
+	text-align: center;
+}
+
+/*.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}*/
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

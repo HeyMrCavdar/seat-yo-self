@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<% if flash[:notice] %>
-	    <p id="notice"><%= flash[:notice] %></p>
-	    <% flash.discard(:notice) %>
-	  <% end %>
-	  <% if flash[:alert] %>
-	    <p id="alert"><%= flash[:alert] %></p>
-	    <% flash.discard(:alert) %>
-	  <% end %>
 
-	  <p class="userinfo">
-		  <% if current_user %>
-		    Signed in as <%= current_user.first_name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-		  <% else %>
-		    <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+			<head>
+
+				<title>Seat Yo Self</title>
+
+			<% if flash[:notice] %>
+		    <p id="notice"><%= flash[:notice] %></p>
+		    <% flash.discard(:notice) %>
 		  <% end %>
-		</p>
+		  <% if flash[:alert] %>
+		    <p id="alert"><%= flash[:alert] %></p>
+		    <% flash.discard(:alert) %>
+		  <% end %>
 
-  	<title>Seat Yo Self</title>
+		  <p class="userinfo">
+			  <% if current_user %>
+			    Signed in as <%= current_user.first_name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+			  <% else %>
+			    <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+			  <% end %>
+			</p>
 
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
-	</head>
+	  	<div id="heading" align="center">
+	  		<h1 class="maintitle"><img src="/azizsy.png" height="157" width="180" >
+					<span class="maintitle">Seat Yo Self</span>
+				</h1>
+			</div>
 
-	<body>
 
-		<%= yield %>
+		  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		  <%= csrf_meta_tags %>
 
-	</body>
+			</head>
+
+			<body>
+
+				<%= yield %>
+
+			</body>
+
+
+			<div id="footing" class="wrapper" align="center">
+				<footer>
+					<br id="copywrite">Seat Yo Self (2015)</br>
+				</footer>
+			</div>
 </html>
