@@ -11,7 +11,9 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
+    @reservation = Reservation.new(user: current_user, restaurant: @restaurant)
     @reservations = @restaurant.reservations
+
   end
 
   # GET /restaurants/new

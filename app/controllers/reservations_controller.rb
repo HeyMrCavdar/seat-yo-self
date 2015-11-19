@@ -9,6 +9,7 @@ class ReservationsController < ApplicationController
 
   def create
   	@reservation = Reservation.new(reservation_params)
+    @reservation.user = current_user
 
   	if @reservation.save
   		redirect_to reservations_url, notice: "Your reservation has been made."
@@ -22,6 +23,6 @@ class ReservationsController < ApplicationController
 
  private
  	def reservation_params
- 		params.require(:reservation).permit(:user_id, :time, :party_size, :restarant_id)
+ 		params.require(:reservation).permit(:user_id, :time, :party_size, :restaurant_id)
  	end
 end
