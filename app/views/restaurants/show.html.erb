@@ -2,4 +2,9 @@
 <h3><%= @restaurant.address %></h3>
 <%= image_tag(@restaurant.image_url) %>
 
+<% @reservations.each do |reservation| %>
+	<p>Reservation at: <%= reservation.time %> for <%= reservation.party_size %>.</p>
+	<p>Reservation by: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
+<% end %>
+
 <p><%= link_to 'Back', restaurants_path %></p>
