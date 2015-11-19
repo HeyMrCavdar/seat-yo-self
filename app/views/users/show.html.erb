@@ -6,3 +6,9 @@
 
 <h3>List of open reservations</h3>
 
+<% current_user.reservations.each do |res| %>
+	<p>Reservation at: <%= res.time %> for <%= res.party_size %>.</p>
+<% end %>
+
+
+
