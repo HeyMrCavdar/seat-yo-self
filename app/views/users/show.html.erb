@@ -7,7 +7,10 @@
 <h3>List of open reservations</h3>
 
 <% current_user.reservations.each do |res| %>
-	<p><%= link_to "#{res.restaurant.name}", restaurant_path(res) %> reservation at: <%= res.time %> for <%= res.party_size %>.</p>
+	<p><%= link_to "#{res.restaurant.name}", restaurant_path(res.restaurant) %> reservation at: <%= res.time %> for <%= res.party_size %>.
+	<%= button_to "Delete", {:controller => :reservations,
+      :action => 'destroy', :id => res.id }, :method => :delete %>
+	</p>
 <% end %>
 
 <%= link_to 'Back', restaurants_path %>
