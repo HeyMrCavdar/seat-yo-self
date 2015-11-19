@@ -1,62 +1,50 @@
 <!DOCTYPE html>
-<html>
+  <html>
 
-<head>
-  <title>SeatYoSelf</title>
+    <head>
+
+        <title>Seat Yo Self</title>
+
+    <% if flash[:notice] %>
+    <p id="notice"><%= flash[:notice] %></p>
+    <% flash.discard(:notice) %>
+  <% end %>
+  <% if flash[:alert] %>
+    <p id="alert"><%= flash[:alert] %></p>
+    <% flash.discard(:alert) %>
+  <% end %>
+
+  <p class="userinfo">
+      <% if current_user %>
+        Signed in as <%= current_user.first_name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+      <% else %>
+        <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+      <% end %>
+    </p>
+
+  <div id="heading" align="center">
+      <h1 class="maintitle"><img src="/azizsy.png" height="157" width="180" >
+            <span class="maintitle">Seat Yo Self</span>
+        </h1>
+    </div>
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
-	  <% if flash[:notice] %>
-	    <p id="notice"><%= flash[:notice] %></p>
-	    <% flash.discard(:notice) %>
-	  <% end %>
-	  <% if flash[:alert] %>
-	    <p id="alert"><%= flash[:alert] %></p>
-	    <% flash.discard(:alert) %>
-	  <% end %>
 
-		<%= yield %>
+    </head>
 
-	  <p class="userinfo">
-		  <% if current_user %>
-		    Signed in as <%= {current_user.first_name}%>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-		  <% else %>
-		    <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-		  <% end %>
+    <body>
 
-		  <p class="userinfo">
-			  <% if current_user %>
-			    Signed in as <%= current_user.first_name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-			  <% else %>
-			    <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-			  <% end %>
-			</p>
+        <%= yield %>
 
-	  	<div id="heading" align="center">
-	  		<h1 class="maintitle"><img src="/azizsy.png" height="157" width="180" >
-					<span class="maintitle">Seat Yo Self</span>
-				</h1>
-			</div>
+    </body>
 
 
-		  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-		  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		  <%= csrf_meta_tags %>
-
-			</head>
-
-			<body>
-
-				<%= yield %>
-
-			</body>
-
-
-			<div id="footing" class="wrapper" align="center">
-				<footer>
-					<br id="copywrite">Seat Yo Self (2015)</br>
-				</footer>
-			</div>
-</html>
+    <div id="footing" class="wrapper" align="center">
+        <footer>
+            <br id="copywrite">Seat Yo Self (2015)</br>
+        </footer>
+    </div>
+  </html>]
