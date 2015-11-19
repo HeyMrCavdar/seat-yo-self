@@ -2,10 +2,13 @@
   <html>
 
     <head>
-
         <title>Seat Yo Self</title>
+     </head>
 
-    <% if flash[:notice] %>
+<body>
+<div id="container">
+  <div id="header">
+  <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
     <% flash.discard(:notice) %>
   <% end %>
@@ -17,35 +20,32 @@
   <p class="userinfo">
       <% if current_user %>
         Signed in as <%= link_to "#{current_user.first_name}", user_path(current_user)
-        %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+        %>. <%= link_to "Log Out", session_path("current"), :method => :delete %>
       <% else %>
         <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
       <% end %>
     </p>
 
   <div id="heading" align="center">
-      <h1 class="maintitle"><img src="/azizsy.png" height="157" width="180" >
+      <h1 class="maintitle"><img src="/azizsy.png" id ="aziz" height="157" width="180" >
             <span class="maintitle">Seat Yo Self</span>
         </h1>
-    </div>
-
+  </div>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  </div>
 
-    </head>
-
-    <body>
-
+  <div id="body">
         <%= yield %>
+  </div>
+
+    <div id="footer" class="wrapper" align="center">
+            <p class="copywrite">220 King Street West</p>
+            <p class="copywrite">Seat Yo Self (2015)</p>
+    </div>
 
     </body>
 
-
-    <div id="footing" class="wrapper" align="center">
-        <footer>
-            <br id="copywrite">Seat Yo Self (2015)</br>
-        </footer>
-    </div>
-  </html>]
+  </html>
