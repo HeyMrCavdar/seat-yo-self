@@ -9,12 +9,18 @@ class ReservationsController < ApplicationController
 
   def create
   	@reservation = Reservation.new(reservation_params)
+
+    unless @reservation.restaurant.available?(@reservation.party_size, @reservation.time)
+      redirect_to restaurants_url, notice: "Part size is over restaurant capacity."
+      return
+    end
+
     @reservation.user = current_user
 
   	if @reservation.save
-  		redirect_to reservations_url, notice: "Your reservation has been made."
+  		redirect_to restaurants_url, notice: "Your reservation has been made."
   	else
-  		render '/restaurants/show', notice: "Sorry, this reservation is unavailable."
+  		render restaurant_url(@reservation.restaurant), notice: "Sorry, this reservation is unavailable."
   	end
   end
 
