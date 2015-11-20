@@ -11,10 +11,11 @@ class ReservationsController < ApplicationController
   	@reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
 
+    #Save the reservation to the database and redirect
   	if @reservation.save
-  		redirect_to '/restaurants', notice: "Your reservation has been made."
+  		redirect_to restaurants_url, notice: "Your reservation has been made."
   	else
-  		render '/restaurants/show', notice: "Sorry, this reservation is unavailable."
+  		redirect_to restaurant_url(@reservation.restaurant), notice: "Sorry, this reservation is unavailable."
   	end
   end
 
