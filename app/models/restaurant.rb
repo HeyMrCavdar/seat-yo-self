@@ -5,6 +5,10 @@ class Restaurant < ActiveRecord::Base
 
 	def available?(party_size, proposed_time)
 		return false if party_size <= 0
-		party_size <= (capacity - reservations.where(time: proposed_time).sum(:party_size) )
+		party_size <= current_capacity(proposed_time)
+	end
+
+	def current_capacity(time)
+		capacity - reservations.where(time: time).sum(:party_size)
 	end
 end

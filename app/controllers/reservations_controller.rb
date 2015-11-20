@@ -9,9 +9,11 @@ class ReservationsController < ApplicationController
 
   def create
   	@reservation = Reservation.new(reservation_params)
+    rest = @reservation.restaurant
 
-    unless @reservation.restaurant.available?(@reservation.party_size, @reservation.time)
-      redirect_to restaurants_url, notice: "Part size is over restaurant capacity."
+    unless rest.available?(@reservation.party_size, @reservation.time)
+      redirect_to restaurant_url(rest),
+      notice: "Restaurant only has capacity for #{rest.current_capacity(@reservation.time)} at this time."
       return
     end
 
