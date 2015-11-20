@@ -2,6 +2,8 @@
 <h3><%= @restaurant.address %></h3>
 <%= image_tag(@restaurant.image_url) %>
 
+
+
 <% if current_user %>
 	<%= form_for(@reservation) do |f| %>
 
@@ -22,10 +24,11 @@
 		</div>
 	<% end %>
 <% end %>
-
+<h2>Your open reservations:</h2>
 <% @reservations.each do |reservation| %>
-	<p>Reservation at: <%= reservation.time %> for <%= reservation.party_size %>.</p>
-	<p>Reservation by: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
+	<p>Reservation at: <%= reservation.time.strftime("%A, %B %d at %I:%M%P") %> for <%= reservation.party_size %> guests.
+	<%= button_to "Delete", {:controller => :reservations,
+      :action => 'destroy', :id => reservation.id }, :method => :delete %></p>
 <% end %>
 
 <p><%= link_to 'Back', restaurants_path %></p>
