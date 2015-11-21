@@ -12,8 +12,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reservation = Reservation.new(user: current_user, restaurant: @restaurant)
-    @reservations = @restaurant.reservations
-
+    @reservations = current_user_reservations(@restaurant)
   end
 
   # GET /restaurants/new
