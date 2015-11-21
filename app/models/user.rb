@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
 	has_many :reservations
 	has_many :restaurants, through: :reservations
+
+	def has_reservation?(time)
+		reservations.exists?(time: time)
+	end
 end
