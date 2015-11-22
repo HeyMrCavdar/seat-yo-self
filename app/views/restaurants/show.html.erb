@@ -5,8 +5,8 @@
 <%= render 'form' %>
 
 <% @reservations.each do |reservation| %>
-	<p>Reservation at: <%= reservation.time %> for <%= reservation.party_size %>.</p>
-	<p>Reservation by: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
+	<% party = reservation.party_size %>
+	<p>Your reservation is at: <%= reservation.time %> for <%= party %> <%= party < 2 ? "person" : "people" %>.</p>
 <% end %>
 
 <p><%= link_to 'Back', restaurants_path %></p>
