@@ -2,7 +2,7 @@
 <h3><%= @restaurant.address %></h3>
 <%= image_tag(@restaurant.image_url) %>
 
-<%= render 'form' %>
+<%= render partial: 'form' %>
 
 <% @reservations.each do |reservation| %>
 	<% party = reservation.party_size %>

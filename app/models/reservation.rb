@@ -15,7 +15,7 @@ class Reservation < ActiveRecord::Base
 
 	def not_double_booking
 		if user.has_reservation?(time)
-			errors.add(:user, "You already have a reservation at #{restaurant.name}")
+			errors.add(:user, "You already have a reservation at #{restaurant.name} for that time")
 		end
 	end
 
