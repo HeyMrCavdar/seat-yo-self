@@ -18,7 +18,7 @@
     <% @restaurants.each do |restaurant| %>
       <tr>
         <td id="restaurantimg"><%= link_to image_tag(restaurant.image_url), restaurant %></td>
-        <td id="restaurantlink"><%= link_to restaurant.name, restaurant %></td>
+        <td id="restaurantlink" class="button"><%= link_to restaurant.name, restaurant %></td>
       </tr>
     <% end %>
   </tbody>

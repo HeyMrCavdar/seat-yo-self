@@ -1,51 +1,63 @@
 <!DOCTYPE html>
   <html>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
     <head>
-
-      <title>Seat Yo Self</title>
-
-      <% if flash[:notice] %>
-        <p id="notice"><%= flash[:notice] %></p>
-        <% flash.discard(:notice) %>
-      <% end %>
-      <% if flash[:alert] %>
-        <p id="alert"><%= flash[:alert] %></p>
-        <% flash.discard(:alert) %>
-      <% end %>
-
-      <p class="userinfo">
-        <% if current_user %>
-          Signed in as <%= link_to "#{current_user.first_name}", user_path(current_user)
-          %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-        <% else %>
-          <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-        <% end %>
-      </p>
-
-      <div id="heading" align="center">
-        <h1 class="maintitle"><img src="/azizsy.png" height="157" width="180" >
-          <span class="maintitle">Seat Yo Self</span>
-        </h1>
-      </div>
-
-
-      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
-
+        <title>Seat Yo Self</title>
     </head>
 
-    <body>
+<body>
+<div id="container">
+  <div id="header">
+  <% if flash[:notice] %>
+    <p id="notice"><%= flash[:notice] %></p>
+    <% flash.discard(:notice) %>
+  <% end %>
+  <% if flash[:alert] %>
+    <p id="alert"><%= flash[:alert] %></p>
+    <% flash.discard(:alert) %>
+  <% end %>
 
-      <%= yield %>
+  <p class="userinfo">
+      <% if current_user %>
+        Signed in as <%= link_to "#{current_user.first_name}", user_path(current_user)
+        %>. <%= link_to "Log Out", session_path("current"), :method => :delete %>
+      <% else %>
+        <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+      <% end %>
+    </p>
 
-    </body>
+<div class="container">
+  <div id="heading" align="center">
+      <h1 class="maintitle"><img src="/azizsy.png" id ="aziz" style="margin:0pt">
+            <span class="maintitle">Seat Yo Self</span>
+      </h1>
 
+  <div id="menu" class="navbar" align="center">
+    <ul>
+    <div class="float"><li><a href="/">Home</a></li></div>
+    <div class="float"><li><a href="/restaurants">Restaurants</a></li></div>
+    <div class="float"><li><a href="/users/:id">Reservations</a></li></div>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
 
-    <div id="footing" class="wrapper" align="center">
-        <footer>
-            <br id="copywrite">Seat Yo Self (2015)</br>
-        </footer>
+  <div id="body">
+  <div id="editedbody" align="center">
+        <%= yield %>
+  </div>
+  </div>
+
+    <div id="footer" class="wrapper" align="center">
+            <p class="copywrite">220 King Street West</p>
+            <p class="copywrite">Seat Yo Self (2015)</p>
     </div>
-  </html>]
+
+  </div>
+</body>
+
+</html>
